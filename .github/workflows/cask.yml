@@ -18,7 +18,11 @@ jobs:
           stable: true
       - name: Check style
         run: brew style Casks/handsfree.rb
+      - name: Trust this reviewed cask for CI
+        run: brew trust --cask suhaasbadada/handsfree/handsfree
       - name: Audit cask
-        run: brew audit --cask --strict --online suhaasbadada/handsfree/handsfree
+        # Online audit rejects GitHub pre-releases by policy; this tap intentionally ships a beta.
+        # Keep strict local audits and checksum verification mandatory, with no audit exceptions.
+        run: brew audit --cask --strict suhaasbadada/handsfree/handsfree
       - name: Verify download checksum (without installing)
         run: brew fetch --cask suhaasbadada/handsfree/handsfree

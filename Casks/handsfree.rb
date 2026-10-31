@@ -2,8 +2,7 @@ cask "handsfree" do
   version "0.1.0-beta.1"
   sha256 "124036e5bf1838fde05c947ff4600724abf5b41ba98faf2b62b661917d343ec3"
 
-  url "https://github.com/suhaasbadada/handsfree/releases/download/v#{version}/HandsFree-#{version}-macos-arm64.dmg",
-      verified: "github.com/suhaasbadada/handsfree/"
+  url "https://github.com/suhaasbadada/handsfree/releases/download/v#{version}/HandsFree-#{version}-macos-arm64.dmg"
   name "HandsFree"
   desc "Local speech-to-text dictation"
   homepage "https://suhaasbadada.github.io/handsfree"

@@ -8,6 +8,16 @@ brew install --cask suhaasbadada/handsfree/handsfree
 dictation for **Apple Silicon Macs running macOS 14 Sonoma or later**.
 This tap currently distributes **0.1.0-beta.1**.
 
+Homebrew 7 may require explicit trust before loading a third-party cask. If it
+reports an untrusted tap, review this repository first; if you trust its code:
+
+```sh
+brew trust --cask suhaasbadada/handsfree/handsfree
+brew install --cask suhaasbadada/handsfree/handsfree
+```
+
+This trusts only this cask's Homebrew code, not the app's signing or notarization.
+
 ## Security and first launch
 
 This beta is **self-signed, not Apple-notarized**. Homebrew verifies the pinned
@@ -56,7 +66,7 @@ anything you want to keep first.
 
    ```sh
    brew style Casks/handsfree.rb
-   brew audit --cask --strict --online suhaasbadada/handsfree/handsfree
+   brew audit --cask --strict suhaasbadada/handsfree/handsfree
    brew fetch --cask suhaasbadada/handsfree/handsfree
    ```
 
@@ -65,6 +75,11 @@ anything you want to keep first.
    registered as the tap. Do not overwrite an existing user's tap checkout.
    Fetch verifies the archive checksum without installing or quitting the app.
    These checks do not prove Apple notarization or test app installation.
+   Also run `brew audit --cask --strict --online suhaasbadada/handsfree/handsfree`
+   and review all findings: Homebrew's online policy rejects this intentional
+   GitHub pre-release (`v0.1.0-beta.1 is a GitHub pre-release.`). CI therefore gates
+   on the strict audit without `--online` and fetch, not on that stable-release
+   policy. Do not suppress unrelated findings or claim the online audit passes.
 5. Review the diff, commit, and push; confirm the GitHub Actions checks pass.
    For a published update, run `brew update` before verifying the full cask token.
 
