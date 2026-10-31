@@ -1,0 +1,24 @@
+name: Cask checks
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  cask:
+    runs-on: macos-15
+    steps:
+      - name: Set up Homebrew
+        uses: Homebrew/actions/setup-homebrew@d482da0e602890d3160aade42e72c8556103bf04 # 2026.10.26.1; also checks out this tap
+        with:
+          stable: true
+      - name: Check style
+        run: brew style Casks/handsfree.rb
+      - name: Audit cask
+        run: brew audit --cask --strict --online suhaasbadada/handsfree/handsfree
+      - name: Verify download checksum (without installing)
+        run: brew fetch --cask suhaasbadada/handsfree/handsfree
