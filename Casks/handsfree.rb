@@ -1,6 +1,6 @@
 cask "handsfree" do
-  version "0.1.1-beta.10"
-  sha256 "09f1fb4f93e1551c42b10a4143f2592c5d937ff2d2798cb55a69714782245437"
+  version "0.1.1-beta.11"
+  sha256 "240799cedf24705bbd5b940baaa940a1b3c6c0de01f834f2edf9f1c1dd8b53d3"
 
   url "https://github.com/suhaasbadada/handsfree/releases/download/v#{version}/HandsFree-#{version}-macos-arm64.dmg"
   name "HandsFree"
