@@ -6,11 +6,12 @@ brew install --cask suhaasbadada/handsfree/handsfree
 
 [HandsFree](https://suhaasbadada.github.io/handsfree) is local speech-to-text
 dictation for **Apple Silicon Macs running macOS 14 Sonoma or later**.
-This tap currently distributes **0.1.1-beta.23**, matching the GitHub release and
-signed in-app updater. Actual input identity, formats and engine-running checks
-replace fatal-on-notification capture handling. Mandatory exact-signed-candidate
-hardware evidence now blocks release without three captures, cancellation and
-complete microphone cleanup. Built-in microphone and private dictation passed;
+This tap currently distributes stable **0.1.1**, matching the GitHub release and
+signed in-app updater. Dictation is **English-only**. Actual input identity,
+formats and engine-running checks replace fatal-on-notification capture handling.
+Mandatory exact-signed-candidate hardware evidence now blocks release without
+three captures, cancellation and complete microphone cleanup. Built-in microphone
+and private dictation passed;
 Bluetooth coverage, acoustic audibility and installed OTA acceptance are separate
 gates. Capture-first, completion-only sound and compact controls are retained.
 Optional **Compatibility paste** in Settings supports apps that hide their focused text field. It submits one
@@ -33,7 +34,7 @@ This trusts only this cask's Homebrew code, not the app's signing or notarizatio
 
 ## Security and first launch
 
-This beta is **self-signed, not Apple-notarized**. Homebrew verifies the pinned
+This release is **self-signed, not Apple-notarized**. Homebrew verifies the pinned
 download checksum but does not establish developer trust or fix notarization.
 Normal macOS quarantine and Gatekeeper checks remain in place; macOS may block
 launch. Review the app's source, release information, and any macOS security
@@ -50,7 +51,7 @@ brew update
 brew upgrade --cask suhaasbadada/handsfree/handsfree
 ```
 
-Beta updates are reviewed manually; automated livecheck is intentionally skipped.
+Stable updates are reviewed manually; automated livecheck is intentionally skipped.
 
 ## Uninstall
 
@@ -89,10 +90,10 @@ anything you want to keep first.
    Fetch verifies the archive checksum without installing or quitting the app.
    These checks do not prove Apple notarization or test app installation.
    Also run `brew audit --cask --strict --online suhaasbadada/handsfree/handsfree`
-   and review all findings: Homebrew's online policy rejects this intentional
-    GitHub pre-release (`v0.1.1-beta.23 is a GitHub pre-release.`). CI therefore gates
-   on the strict audit without `--online` and fetch, not on that stable-release
-   policy. Do not suppress unrelated findings or claim the online audit passes.
+   and review all findings. This tap now ships a stable GitHub release, not a
+   pre-release. CI gates on the strict audit and fetch; the online audit is an
+   additional maintainer check. Do not suppress findings or claim an audit passes
+   without running it.
 5. Review the diff, commit, and push; confirm the GitHub Actions checks pass.
    For a published update, run `brew update` before verifying the full cask token.
 

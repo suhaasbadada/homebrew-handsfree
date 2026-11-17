@@ -21,7 +21,7 @@ jobs:
       - name: Trust this reviewed cask for CI
         run: brew trust --cask suhaasbadada/handsfree/handsfree
       - name: Audit cask
-        # Online audit rejects GitHub pre-releases by policy; this tap intentionally ships a beta.
+        # This tap ships a stable release; maintainers also run the online audit before publishing.
         # Keep strict local audits and checksum verification mandatory, with no audit exceptions.
         run: brew audit --cask --strict suhaasbadada/handsfree/handsfree
       - name: Verify download checksum (without installing)
