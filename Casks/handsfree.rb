@@ -1,6 +1,6 @@
 cask "handsfree" do
-  version "0.1.1-beta.23"
-  sha256 "9673e1cd9905d054ae6740b286e94c8c710c94b5b72ab5fe99660a05c5cf52b0"
+  version "0.1.1"
+  sha256 "a84f328e880fa58c0055f605ae9bda19ebb6ad9f0a22d819804202684c0bab91"
 
   url "https://github.com/suhaasbadada/handsfree/releases/download/v#{version}/HandsFree-#{version}-macos-arm64.dmg"
   name "HandsFree"
@@ -8,7 +8,7 @@ cask "handsfree" do
   homepage "https://suhaasbadada.github.io/handsfree"
 
   livecheck do
-    skip "Beta releases are reviewed and updated manually"
+    skip "Stable releases are reviewed and updated manually"
   end
 
   depends_on arch: :arm64
