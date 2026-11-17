@@ -6,9 +6,12 @@ brew install --cask suhaasbadada/handsfree/handsfree
 
 [HandsFree](https://suhaasbadada.github.io/handsfree) is local speech-to-text
 dictation for **Apple Silicon Macs running macOS 14 Sonoma or later**.
-This tap currently distributes **0.1.1-beta.21**, matching the GitHub release and
-signed in-app updater. It includes capture-startup corrections, interactive
-top-right product status, a lighter dashboard and inline app updates.
+This tap currently distributes **0.1.1-beta.22**, matching the GitHub release and
+signed in-app updater. Capture-first removes start-cue/tail waiting and defers
+completion sound preparation until input drains. Compact controls, red shortcut
+keys and native select containment fix the Settings horizontal scrollbar.
+Cold Bluetooth activation remains hardware-dependent; real-device latency and
+installed OTA/dictation acceptance remain unverified for this experimental beta.
 Optional **Compatibility paste** in Settings supports apps that hide their focused text field. It submits one
 paste only when normal insertion was not attempted and the original app/window
 remain verified. The exact field cannot be verified; it stays off until enabled.
@@ -86,7 +89,7 @@ anything you want to keep first.
    These checks do not prove Apple notarization or test app installation.
    Also run `brew audit --cask --strict --online suhaasbadada/handsfree/handsfree`
    and review all findings: Homebrew's online policy rejects this intentional
-    GitHub pre-release (`v0.1.1-beta.21 is a GitHub pre-release.`). CI therefore gates
+    GitHub pre-release (`v0.1.1-beta.22 is a GitHub pre-release.`). CI therefore gates
    on the strict audit without `--online` and fetch, not on that stable-release
    policy. Do not suppress unrelated findings or claim the online audit passes.
 5. Review the diff, commit, and push; confirm the GitHub Actions checks pass.
